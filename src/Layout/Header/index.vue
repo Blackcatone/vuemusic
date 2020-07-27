@@ -1,0 +1,16 @@
+<template>
+  <div class="header">
+    
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
+.header {
+  height: 50px;
+  background: #D52B2B;
+}
+</style>

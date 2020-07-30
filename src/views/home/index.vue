@@ -2,19 +2,16 @@
   <div class="home">
     2
   </div>
-</template>  
-
-
+</template>
 
 <script>
-
 export default {
-  name: 'home'
-}
+  name: "home"
+};
 </script>
 
 <style lang="scss" scoped>
-  .home {
-    height: 1200px;
-  }
+.home {
+  height: 1200px;
+}
 </style>

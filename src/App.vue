@@ -28,6 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #a0a0a0;
 }
 .flex-ac {
   display: -webkit-flex;

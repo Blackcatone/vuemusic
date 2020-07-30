@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    222244444
+    music
   </div>
 </template>
 
@@ -13,5 +13,6 @@ export default {
 <style lang="scss" scoped>
 .home {
   height: 1200px;
+  background-color: #fff;
 }
 </style>

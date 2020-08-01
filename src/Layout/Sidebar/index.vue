@@ -5,6 +5,10 @@
       <span class="text">未登录</span>
       <i class="iconfont left-icon">&#xea0f;</i>
     </div>
+    <div class="user-login-info">
+      <input type="text" placeholder="请输入手机号">
+      <input type="password" placeholder="请输入密码">
+    </div>
     <div :class="'music-list ' + item.isAceat" v-for="item in userList" :key="item.title">
       <i class="iconfont music-icon" v-html="item.icon"></i>
       <span class="text">{{item.title}}</span>
@@ -64,7 +68,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.userList);
   }
 };
 </script>
@@ -122,5 +125,18 @@ export default {
     color: #e43333;
     background-color: #e5e2e2;
   }
+  .user-login-info{
+    height: 400px;
+    width: 250px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    z-index: 99;
+    box-shadow: 3px 3px 20px 1px #d1d1d1;
+  }
+  
 }
 </style>

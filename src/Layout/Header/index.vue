@@ -63,6 +63,7 @@ export default {};
       background-color: #eba4a4;
       cursor: text;
       font-size: 12px;
+      opacity: .8;
     }
     .left{
       margin-left: 22px;

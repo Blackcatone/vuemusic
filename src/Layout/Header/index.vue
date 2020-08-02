@@ -3,9 +3,8 @@
     <div class="header-lift">
       <div class="lift-box">
         <i class="iconfont left">&#xe632;</i>
-        <i class="iconfont">&#xe631;</i>        
+        <i class="iconfont">&#xe631;</i>
       </div>
-
     </div>
     <div class="header-content"></div>
     <div class="header-rigth">
@@ -15,7 +14,6 @@
       <i class="iconfont left">&#xe9b2;</i>
       <i class="iconfont left">&#xe684;</i>
       <i class="iconfont left">&#xe65f;</i>
-
     </div>
   </div>
 </template>
@@ -37,7 +35,7 @@ export default {};
     flex: 1;
     color: #f1f0f0;
     cursor: Default;
-    .lift-box{
+    .lift-box {
       position: relative;
       left: 160px;
     }
@@ -60,12 +58,16 @@ export default {};
       padding-left: 20px;
       border-radius: 20px;
       border: none;
+      outline: none;
       background-color: #eba4a4;
       cursor: text;
       font-size: 12px;
-      opacity: .8;
+      opacity: 0.8;
     }
-    .left{
+    input::-webkit-input-placeholder {
+      color: #eeeeee;
+    }
+    .left {
       margin-left: 22px;
       color: #e9e0e0;
       cursor: Default;

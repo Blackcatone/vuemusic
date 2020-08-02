@@ -2,12 +2,20 @@
   <div class="sidebar">
     <div class="user-login">
       <i class="iconfont login-icon">&#xe8df;</i>
-      <span class="text">未登录</span>
+      <span class="text" @click="ontrue">未登录</span>
       <i class="iconfont left-icon">&#xea0f;</i>
     </div>
-    <div class="user-login-info">
-      <input type="text" placeholder="请输入手机号">
-      <input type="password" placeholder="请输入密码">
+    <div class="user-login-info" v-show="isaction">
+      <i class="iconfont close" @click="onclosef">&#xe63f;</i>
+      <i class="iconfont phone-icon">&#xe71f;</i>
+      <div class="phone-info">
+        <i class="iconfont icon">&#xe71f;</i>
+        <input type="text" class="phone-info-input a" v-model="phoneeLogin.phone" placeholder="请输入手机号" />
+        <i class="iconfont icon">&#xe6ac;</i>
+        <input type="password" class="phone-info-input b" v-model="phoneeLogin.password" placeholder="请输入密码" />
+      </div>
+      <button class="user-login-info-btn" @click="userLoging">登录</button>
+      <a href="javascript:(0)" class="insta">注册</a>
     </div>
     <div :class="'music-list ' + item.isAceat" v-for="item in userList" :key="item.title">
       <i class="iconfont music-icon" v-html="item.icon"></i>
@@ -22,6 +30,7 @@
 </template>
 
 <script>
+import { postUserLogin } from '@/api/request'
 export default {
   data() {
     return {
@@ -64,10 +73,29 @@ export default {
           path: "",
           isAceat: ""
         }
-      ]
+      ],
+      phoneeLogin:{
+        phone: '',
+        password: ''
+      },
+      isaction:false
     };
   },
-  mounted() {
+  mounted() {},
+  methods: {
+    ontrue() {
+      this.isaction = true
+    },
+    onclosef() {
+      this.isaction = false
+    },
+    userLoging() {
+      console.log(this.phoneeLogin);
+      postUserLogin(this.phoneeLogin).then(res => {
+        console.log(res);
+      })
+    },
+
   }
 };
 </script>
@@ -115,7 +143,7 @@ export default {
       font-size: 14px;
     }
   }
-  .mymusic{
+  .mymusic {
     font-size: 12px;
     color: #a7a7a7;
     margin-left: 20px;
@@ -125,18 +153,75 @@ export default {
     color: #e43333;
     background-color: #e5e2e2;
   }
-  .user-login-info{
-    height: 400px;
-    width: 250px;
+  .user-login-info {
+    height: 480px;
+    width: 350px;
     background-color: #ffffff;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 5px;
     z-index: 99;
     box-shadow: 3px 3px 20px 1px #d1d1d1;
+    display: flex;
+    flex-direction: column;
+    .close {
+      width: 16px;
+      margin-top: 5px;
+      margin-left: 330px;
+      // margin: 5px;
+      color: $myq-theme-fontcolor;
+      cursor: default;
+    }
+    .phone-icon {
+      font-size: 80px;
+      margin: 0 auto;
+      margin-top: 30px;
+      color: #ffc2c2;
+    }
+    .phone-info {
+      margin: 80px -10px;
+      .icon {
+        margin-left: 20px;
+        position: relative;
+        left: 20px;
+        color: $myq-theme-fontcolor;
+      }
+      &-input {
+        width: 270px;
+        height: 30px;
+        // border-radius: 5px;
+        border: 1px solid $myq-theme-fontcolor;
+        padding-left: 30px;
+        outline: none;
+      }
+      input::-webkit-input-placeholder {
+        font-size: 12px;
+    }
+      .a {
+        border-radius: 5px 5px 0 0;
+      }
+      .b {
+        border-radius: 0 0 5px 5px;
+        border-top: none;
+
+      }
+    }
+    &-btn {
+      width: 300px;
+      height: 40px;
+      color: #fff;
+      background-color: $my-theme-bgcolor;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      margin: 0 auto;
+    }
+    .insta {
+      margin: 0 auto;
+      margin-top: 10px;
+    }
   }
-  
 }
 </style>

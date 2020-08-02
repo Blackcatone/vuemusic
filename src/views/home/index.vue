@@ -4,7 +4,7 @@
       <div class="swiper">
         <template>
           <el-carousel :interval="4000" type="card" height="200px">
-            <el-carousel-item v-for="item in bannersList" :key="item.encodeId">
+            <el-carousel-item v-for="item in bannersList" :key="item.imageUrl">
               <img class="swiper-img" :src="item.imageUrl" alt="">
               <div class="swiper-title" :style="{color:item.typeColor}">{{ item.typeTitle}}</div>
             </el-carousel-item>
@@ -20,10 +20,6 @@
           </div>
           <div class="redSong-content-title"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</template>
       </div>
     </div>
   </div>
@@ -49,7 +45,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/golab/vars.scss';
 .home {
   height: 1200px;
   background-color: #fff;

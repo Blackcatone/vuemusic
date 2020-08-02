@@ -4,9 +4,7 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 
-
 import "./assets/golab/reset.scss";
-
 import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(ElementUI);

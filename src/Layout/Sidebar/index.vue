@@ -31,7 +31,13 @@
 
 <script>
 import { postUserLogin } from '@/api/request'
+import { mapState, mapMutations } from "vuex";
 export default {
+  computed:{
+    // ...mapState({
+    //   users: (state) => state.user.token
+    // })
+  },
   data() {
     return {
       userList: [
@@ -78,7 +84,8 @@ export default {
         phone: '',
         password: ''
       },
-      isaction:false
+      isaction:false,
+      logingData: {}
     };
   },
   mounted() {},
@@ -93,6 +100,9 @@ export default {
       console.log(this.phoneeLogin);
       postUserLogin(this.phoneeLogin).then(res => {
         console.log(res);
+        this.logingData = res
+        let token = res.token
+        this.$store.commit('setToken', token)
       })
     },
 

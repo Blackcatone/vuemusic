@@ -6,14 +6,13 @@
 
 <style lang="scss">
 @font-face {
-  font-family: "iconfont"; /* project id 1970900 */
-  src: url("//at.alicdn.com/t/font_1970900_yroduqo8gc.eot");
-  src: url("//at.alicdn.com/t/font_1970900_yroduqo8gc.eot?#iefix")
-      format("embedded-opentype"),
-    url("//at.alicdn.com/t/font_1970900_yroduqo8gc.woff2") format("woff2"),
-    url("//at.alicdn.com/t/font_1970900_yroduqo8gc.woff") format("woff"),
-    url("//at.alicdn.com/t/font_1970900_yroduqo8gc.ttf") format("truetype"),
-    url("//at.alicdn.com/t/font_1970900_yroduqo8gc.svg#iconfont") format("svg");
+  font-family: 'iconfont';  /* project id 1970900 */
+  src: url('//at.alicdn.com/t/font_1970900_hiyrxxuhmje.eot');
+  src: url('//at.alicdn.com/t/font_1970900_hiyrxxuhmje.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1970900_hiyrxxuhmje.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1970900_hiyrxxuhmje.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1970900_hiyrxxuhmje.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1970900_hiyrxxuhmje.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;

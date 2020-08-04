@@ -15,10 +15,10 @@
         <div class="redSong-title">推荐歌单<i class="iconfont">&#xe631;</i></div>
         <div class="redSong-content">
           <div class="redSong-content-box">
-            <img src="" alt="">
-            <div class="playnub"></div>
+            <img src="https://p1.music.126.net/3KT8mmZUQCmnhUBqk7ue6A==/109951164488974658.jpg" alt="">
+            <div class="playnub iconfont">&#xe6b4;<span>&nbsp;648万</span></div>
+            <div class="redSong-content-box-title">[下班听我的] 夏日回家路上 挡不住的放松好音乐</div>
           </div>
-          <div class="redSong-content-title"></div>
         </div>
       </div>
     </div>
@@ -70,6 +70,38 @@ export default {
         background-color: $my-theme-bgcolor;
         padding: 0 10px;
         border-radius: 8px 0;
+      }
+    }
+    .redSong {
+      &-title {
+        color: #000;
+      }
+      &-content {
+
+        &-box {
+          margin: 20px 20px 0 0;
+          img {
+            width: 150px;
+            border-radius: 5px;
+            
+
+          }
+          .playnub {
+            position: relative;
+            top: -148px;
+            left: 95px;
+            color: #fff;
+            font-size: 12px;
+          }
+          &-title {
+            font-size: 14px;
+            color: $mys-theme-fontcolor;
+            display:block;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+          }
+        }
       }
     }
   }

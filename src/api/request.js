@@ -19,3 +19,16 @@ export function postUserLogin(data) {
     method: "post",
   });
 }
+export function getResource(data) {
+  return Service({
+    url: "/recommend/resource",
+    data: JSON.stringify(data),
+    method: "get"
+  })
+}
+export function getPrivatecontent() {
+  return Service({
+    url: "/personalized/privatecontent",
+    method: "get"
+  })
+}

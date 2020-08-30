@@ -34,9 +34,6 @@ import { postUserLogin } from '@/api/request'
 import { mapState, mapMutations } from "vuex";
 export default {
   computed:{
-    // ...mapState({
-    //   users: (state) => state.user.token
-    // })
   },
   data() {
     return {
@@ -99,10 +96,12 @@ export default {
     userLoging() {
       console.log(this.phoneeLogin);
       postUserLogin(this.phoneeLogin).then(res => {
-        console.log(res);
+        // console.log(res);
         this.logingData = res
         let token = res.token
-        this.$store.commit('setToken', token)
+        let cookie = res.cookie
+        this.$store.commit('setToken', cookie)
+        
       })
     },
 

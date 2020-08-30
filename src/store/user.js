@@ -2,7 +2,7 @@ import Cookie from "js-cookie";
 
 export default {
   state: {
-    token: ""
+    cookie: ""
   },
   mutations: {
     setToken(state, val) {
@@ -11,10 +11,10 @@ export default {
       console.log(state.token);
     },
     getToken(state) {
-      state.token = Cookie.get("token");
+      state.cookie = Cookie.get("cookie");
     },
     clearToken(state) {
-      state.token = ''
+      state.cookie = ''
     }
   },
   actions: {}

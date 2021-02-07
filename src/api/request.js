@@ -36,6 +36,13 @@ export function getPrivatecontent() {
     method: "get"
   })
 }
+// 获取歌单( 网友精选碟 )
+export function getSelectdSongList() {
+  return Service({
+    url: "/top/playlist",
+    method: "get"
+  })
+}
 // 获取精品歌单
 export function getBsetSong() {
   return Service({
@@ -54,6 +61,13 @@ export function getSongBsetTagList() {
 export function getSongTagList() {
   return Service({
     url: "/playlist/catlist",
+    method: "get"
+  })
+}
+// 获取热门歌单分类
+export function getHotTag() {
+  return Service({
+    url: "/playlist/hot",
     method: "get"
   })
 }

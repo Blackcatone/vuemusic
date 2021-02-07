@@ -15,22 +15,26 @@
       <div class="song-tag">
         <div class="song-tag-all">
           <div class="all-tag-buttom">全部歌单<i class="iconfont">&#xe631;</i></div>
-          <div class="song-box" v-show="true">
+          <div class="song-box" v-show="false">
             <div class="song-box-header"><p class="isTrue">全部歌单</p></div>
-            <div class="song-box-content">语种 <p>华语</p></div>
+            <div class="song-box-content">
+              <p class="title">语种</p>
+              <p class="text">华语</p>
+              <p class="text">华语</p>
+              <p class="text">华语</p>
+              <p class="text">华语</p>
+              <p class="text">华语</p>     
+            </div>
           </div>
         </div>
         <div class="song-tag-start">
-          <p class="isTrue">华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
-          <p>华语</p>
+          <p class="" v-for="item in hotTag" :key="item.id">{{ item.name }}</p>
+
+        </div>
+      </div>
+      <div class="song-list">
+        <div class="song-box-info">
+          <song-box></song-box>
         </div>
       </div>
     </div>
@@ -39,35 +43,52 @@
 
 <script>
 import tabs from "@/components/tabs";
-import { getBsetSong, getSongTagList, getSongBsetTagList } from "@/api/request.js"
+import songBox from "@/components/songBox"
+import { getBsetSong, getHotTag, getSelectdSongList, getSongBsetTagList } from "@/api/request.js"
 import { Message } from "element-ui"
+import SongBox from '../../components/songBox.vue';
 export default {
   components: {
-    tabs
+    tabs,
+    songBox
   },
   data() {
     return {
       onShow: false,
-      BsetSong:[]
+      BsetSong: [],
+      hotTag: [],
+      getSelectdSongList: []
     };
   },
   created() {
+
+  },
+  mounted() {
     getBsetSong().then(res =>{
       if(res.code === 200) {
         this.BsetSong = res.playlists[0]
-       console.log(this.BsetSong);
+      //  console.log(this.BsetSong);
       } else {
         this.$message.error("数据获取失败")
       }
     }),
-    getSongBsetTagList().then(res => {
-      console.log(res);
+    getHotTag().then(res => {
+      if (res.code === 200) {
+        this.hotTag = res.tags
+      } else {
+        this.$message.error("数据获取失败")
+      }
+    }),
+    getSelectdSongList().then(res => {
+      if (res.code === 200) {
+        this.getSelectdSongList = res
+      } else {
+        this.$message.error("数据获取失败")
+      }
     })
   },
   methods: {
-    onBtnOut() {
 
-    },
   },
 
 };
@@ -152,6 +173,7 @@ export default {
   display: flex;
   justify-content: space-between;
   .song-tag-all {
+    position: relative;
     .all-tag-buttom {
       height: 30px;
       width: 100px;
@@ -164,11 +186,14 @@ export default {
       cursor: pointer;
     }
     .song-box {
+      position: absolute;
+      top: 30px;
+      left: 0;
       width: 745px;
       height: 500px;
       border: 1px solid rgb(236, 236, 236);
       margin-top: 5px;
-      box-shadow: 0 0 5px #ccc;
+      box-shadow: 0 0 3px #ccc;
       &-header {
         border-bottom: 1px solid #e9e9e9;
         height: 55px;
@@ -186,19 +211,42 @@ export default {
       }
       &-content {
         display: flex;
+        font-size: 14px;
+        line-height: 60px;
+        flex-wrap: wrap;
+        .title{
+          width: 137px;
+          height: 60px;
+          color: #ccc;
+          box-sizing: border-box;
+          padding-left: 20px;
+
+        }
+        .text {
+          width: 100px;
+          height: 60px;
+
+        }
       }
     }
   }
   .song-tag-start {
     display: flex;
     p {
-      width: 40px;
+      width: 54px;
       height: 20px;
       font-size: 12px;
       line-height: 20px;
       text-align: center;
 
     }
+  }
+}
+.song-list {
+  .song-box-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
   }
 }
 .isTrue {

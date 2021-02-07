@@ -227,6 +227,11 @@ export default {
       border-radius: 5px;
       margin: 0 auto;
     }
+    a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #000;
+    }
     .insta {
       margin: 0 auto;
       margin-top: 10px;
